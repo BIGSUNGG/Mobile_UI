@@ -1,10 +1,7 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class UI_PopupButton : UI_Button
+public class UI_Scene : UI_Base
 {
-    [SerializeField, TabGroup("Popup")] GameObject _openPopup;
-
     public override void Awake()
     {
         base.Awake();
@@ -18,10 +15,5 @@ public class UI_PopupButton : UI_Button
     public override void Update()
     {
         base.Update();
-    }
-
-    public override void OnClickButton()
-    {
-        // TODO : ÆË¾÷ ±¸Çö
     }
 }

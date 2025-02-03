@@ -1,17 +1,23 @@
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Button : UI_Base
+public class UI_Button : UI_Unit
 {
-    public Image Image { get; private set; }
-    public Button Button { get; private set; }
+    [TabGroup("UI")] public Image Image;
+    [TabGroup("UI")] public Button Button;
 
     public override void Awake()
     {
         base.Awake();
 
-        Image = GetComponentInChildren<Image>();
-        Button = GetComponentInChildren<Button>();
+        if(Image == null)
+            Image = GetComponent<Image>();
+
+        if (Button == null)
+            Button = GetComponent<Button>();
+
         Button.onClick.AddListener(OnClickButton);
     }
 

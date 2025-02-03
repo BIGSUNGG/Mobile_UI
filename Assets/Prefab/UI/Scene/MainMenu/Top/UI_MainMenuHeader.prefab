@@ -134,6 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPointerSizeUp: 1
+  Image: {fileID: 4973393753971641031}
+  Button: {fileID: 6229858777804549001}
+  _openPopup: {fileID: 0}
 --- !u!1 &993320373174522997
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +271,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPointerSizeUp: 1
+  Image: {fileID: 3847646039577794612}
+  Button: {fileID: 1132941999452884282}
+  _openPopup: {fileID: 0}
 --- !u!1 &2592114542599410960
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +528,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPointerSizeUp: 1
+  Image: {fileID: 5652263197636981303}
+  Button: {fileID: 1390002515100357214}
+  _openPopup: {fileID: 0}
 --- !u!1 &6607750427213591039
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +665,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPointerSizeUp: 1
+  Image: {fileID: 1770541249735873732}
+  Button: {fileID: 4787181591282122860}
+  _openPopup: {fileID: 7833653338627267163, guid: a725c7c36e989c546b68de313f96e0ec, type: 3}
 --- !u!1 &8709757832948773542
 GameObject:
   m_ObjectHideFlags: 0

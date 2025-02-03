@@ -4,17 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_MainMenuFooter : UI_Base
+public class UI_MainMenuScene : UI_Scene
 {
-    [SerializeField, TabGroup("Icon")] List<GameObject> _iconGameObjects = new List<GameObject>();
-    List<UI_MainMenuFooterIcon> _icons = new List<UI_MainMenuFooterIcon>();
+    [SerializeField, TabGroup("Icon")] List<UI_Button> _icons = new List<UI_Button>();
     [SerializeField, TabGroup("Icon")] int _startIconNum = 2;
 
-    UI_MainMenuFooterIcon _selectedIcon;
-
-    [SerializeField, TabGroup("UI")] GameObject _iconLayoutGameObject;
-    HorizontalLayoutGroup _iconLayoutGroup;
-    RectTransform _iconLayoutRectTransform;
+    UI_Button _selectedIcon;
 
     public override void Awake()
     {
@@ -28,15 +23,9 @@ public class UI_MainMenuFooter : UI_Base
         base.Start();
 
         RectTransform = GetComponent<RectTransform>();
-        _iconLayoutGroup = _iconLayoutGameObject.GetComponent<HorizontalLayoutGroup>();
-        _iconLayoutRectTransform = _iconLayoutGameObject.GetComponent<RectTransform>();
 
-        foreach (var go in _iconGameObjects)
-        {
-            UI_MainMenuFooterIcon icon = go.GetComponent<UI_MainMenuFooterIcon>();
+        foreach (var icon in _icons)
             icon.Button.onClick.AddListener(() => { OnClickIcon(icon); });
-            _icons.Add(icon);
-        }
 
         SelectIcon(_icons[_startIconNum]);
     }
@@ -46,17 +35,14 @@ public class UI_MainMenuFooter : UI_Base
     {
         base.Update();
 
-        // Icon이 옆으로 늘어났을 때 LayoutGroup에 바로 영향이 가도록 작성한 코드 (제거 시 커진 아이콘 주변 아이콘이 밀려나지 않음)
-        LayoutRebuilder.MarkLayoutForRebuild(_iconLayoutRectTransform);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(_iconLayoutRectTransform);
     }
 
-    void OnClickIcon(UI_MainMenuFooterIcon clickedIcon)
+    void OnClickIcon(UI_Button clickedIcon)
     {
         SelectIcon(clickedIcon);
     }
 
-    void SelectIcon(UI_MainMenuFooterIcon newSelectedIcon)
+    void SelectIcon(UI_Button newSelectedIcon)
     {
         if (_selectedIcon == newSelectedIcon)
             return;
