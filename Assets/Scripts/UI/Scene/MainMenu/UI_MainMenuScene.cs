@@ -47,13 +47,13 @@ public class UI_MainMenuScene : UI_Scene
         if (_selectedIcon == newSelectedIcon)
             return;
 
-        Sequence mysquence = DOTween.Sequence();
-        mysquence.Append(newSelectedIcon.RectTransform.DOSizeDelta(new Vector2(360.0f, 180.0f), 0.1f));
-        mysquence.Join(newSelectedIcon.Button.GetComponent<RectTransform>().DOSizeDelta(new Vector2(360.0f, 180.0f), 0.1f));
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(newSelectedIcon.RectTransform.DOSizeDelta(new Vector2(360.0f, 180.0f), 0.1f));
+        sequence.Join(newSelectedIcon.Button.GetComponent<RectTransform>().DOSizeDelta(new Vector2(360.0f, 180.0f), 0.1f));
         if (_selectedIcon)
         {
-            mysquence.Join(_selectedIcon.RectTransform.DOSizeDelta(new Vector2(180.0f, 180.0f), 0.1f));
-            mysquence.Join(_selectedIcon.Button.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180.0f, 180.0f), 0.1f));
+            sequence.Join(_selectedIcon.RectTransform.DOSizeDelta(new Vector2(180.0f, 180.0f), 0.1f));
+            sequence.Join(_selectedIcon.Button.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180.0f, 180.0f), 0.1f));
         }
 
         _selectedIcon = newSelectedIcon;

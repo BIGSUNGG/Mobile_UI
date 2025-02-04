@@ -46,12 +46,12 @@ public class PopupManager : MonoBehaviour
         
     }
 
-    public UI_Popup Open(GameObject popupPrefab)
+    public UI_Popup Open(GameObject popupPrefab, bool immediately = false)
     {
         return Open<UI_Popup>(popupPrefab);
     }
 
-    public T Open<T>(GameObject popupPrefab) where T : UI_Popup
+    public T Open<T>(GameObject popupPrefab, bool immediately = false) where T : UI_Popup
     {
         if(popupPrefab == null)            
             return null;
@@ -69,19 +69,19 @@ public class PopupManager : MonoBehaviour
             return null;
         }
 
-        popup.OnOpen();
+        popup.Open();
         _openedPopup.AddLast(new Tuple<GameObject, UI_Popup>(popupPrefab, popup));
 
         return popup;
     }
 
-    public bool Close(UI_Popup closePopup)
+    public bool Close(UI_Popup closePopup, bool immediately = false)
     {
         if (closePopup == null)
             return false;
 
-        closePopup.OnClose();
-        Destroy(closePopup.gameObject);
+        closePopup.OnFinishCloseAnimationEvent.AddListener(OnFinishPopupCloseAnim);
+        closePopup.Close();
 
         // 팝업 매니저에서 관리 중인 팝업이 아닌 경우 false 반환
         var exist = _openedPopup.Where(t => t.Item2 == closePopup).FirstOrDefault();
@@ -91,5 +91,10 @@ public class PopupManager : MonoBehaviour
         _openedPopup.Remove(exist);
 
         return true;
+    }
+
+    void OnFinishPopupCloseAnim(UI_Popup popup)
+    {
+        Destroy(popup.gameObject);
     }
 } 

@@ -8,6 +8,9 @@ public class UI_PopupClosetButton : UI_Button
     public override void Awake()
     {
         base.Awake();
+
+        if (_closePopup == null)
+            _closePopup = GetComponentInParent<UI_Popup>();
     }
 
     public override void Start()
@@ -20,7 +23,7 @@ public class UI_PopupClosetButton : UI_Button
         base.Update();
     }
 
-    public override void OnClickButton()
+    protected override void OnClickButton()
     {
         PopupManager.Instance.Close(_closePopup);
     }

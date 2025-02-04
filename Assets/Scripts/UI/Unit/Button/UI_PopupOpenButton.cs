@@ -20,7 +20,7 @@ public class UI_PopupOpenButton : UI_Button
         base.Update();
     }
 
-    public override void OnClickButton()
+    protected override void OnClickButton()
     {
         PopupManager.Instance.Open(_openPopup);
     }

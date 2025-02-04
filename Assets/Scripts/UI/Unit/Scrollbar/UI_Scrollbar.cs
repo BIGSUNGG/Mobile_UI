@@ -1,24 +1,21 @@
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Button : UI_Unit
+public class UI_Scrollbar : UI_Widget
 {
     [TabGroup("UI")] public Image Image;
-    [TabGroup("UI")] public Button Button;
+    [TabGroup("UI")] public Scrollbar Scrollbar;
 
     public override void Awake()
     {
         base.Awake();
 
-        if(Image == null)
+        if (Image == null)
             Image = GetComponent<Image>();
 
-        if (Button == null)
-            Button = GetComponent<Button>();
-
-        Button.onClick.AddListener(OnClickButton);
+        if (Scrollbar == null)
+            Scrollbar = GetComponent<Scrollbar>();
     }
 
     public override void Start()
@@ -29,10 +26,5 @@ public class UI_Button : UI_Unit
     public override void Update()
     {
         base.Update();
-    }
-
-    protected virtual void OnClickButton()
-    {
-        
     }
 }

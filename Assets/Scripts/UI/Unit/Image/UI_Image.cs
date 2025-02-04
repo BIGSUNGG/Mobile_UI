@@ -1,24 +1,17 @@
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Button : UI_Unit
+public class UI_Image : UI_Unit
 {
     [TabGroup("UI")] public Image Image;
-    [TabGroup("UI")] public Button Button;
 
     public override void Awake()
     {
         base.Awake();
 
-        if(Image == null)
+        if (Image == null)
             Image = GetComponent<Image>();
-
-        if (Button == null)
-            Button = GetComponent<Button>();
-
-        Button.onClick.AddListener(OnClickButton);
     }
 
     public override void Start()
@@ -31,8 +24,8 @@ public class UI_Button : UI_Unit
         base.Update();
     }
 
-    protected virtual void OnClickButton()
+    public virtual void OnClickButton()
     {
-        
+
     }
 }
