@@ -4,7 +4,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
-public class UI_Base : MonoBehaviour
+public class UI_Behaviour : MonoBehaviour
 {
     [HideInInspector] public RectTransform RectTransform { get; set; }
 

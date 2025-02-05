@@ -12,3 +12,10 @@ public enum Direction
     LeftTop,        // ¢Ø
     Center          // o
 }
+
+public enum SequenceType
+{
+    Append,
+    Insert,
+    Jon,
+}

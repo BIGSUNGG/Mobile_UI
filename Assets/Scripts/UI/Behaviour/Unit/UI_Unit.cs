@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UI_Unit : UI_Base, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler
+public class UI_Unit : UI_Behaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler
 {    
     // 마우스가 UI 위에 있을 때 크기에 대한 애니메이션을 적용할지
     [SerializeField, TabGroup("Animation")] bool _isPointerSizeUp = false;

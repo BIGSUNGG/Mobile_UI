@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UI_Widget : UI_Base
+public class UI_Scene : UI_Behaviour
 {
     public override void Awake()
     {
