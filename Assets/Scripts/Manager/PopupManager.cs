@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 
-public class PopupManager : MonoBehaviour
+public class PopupManager : MonoSingleton<PopupManager>
 {
     /// <summary>
     /// 현재 열려 있는 팝업 목록
@@ -12,39 +12,6 @@ public class PopupManager : MonoBehaviour
     /// item2 : 열려있는 팝업 컴포넌트
     /// </summary>
     LinkedList<Tuple<GameObject, UI_Popup>> _openedPopup = new LinkedList<Tuple<GameObject, UI_Popup>>();
-
-    public static PopupManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                GameObject go = new GameObject();
-                go.name = "PopupManager";
-                _instance = go.AddComponent<PopupManager>();
-                DontDestroyOnLoad(go);
-            }
-
-            return _instance;
-        }
-    }
-
-    private static PopupManager _instance;
-
-    public void Awake()
-    {
-        
-    }
-
-    public void Start()
-    {
-        
-    }
-
-    public void Update()
-    {
-        
-    }
 
     public UI_Popup Open(GameObject popupPrefab, bool immediately = false)
     {
