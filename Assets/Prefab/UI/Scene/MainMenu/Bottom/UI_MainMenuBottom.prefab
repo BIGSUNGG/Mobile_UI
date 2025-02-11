@@ -29,8 +29,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8685352516963582594}
+  m_Children: []
   m_Father: {fileID: 5359602008471636725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -53,7 +52,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628279551356097135}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -107,6 +106,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6323026983113053995}
+  - {fileID: 8685352516963582594}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -140,7 +140,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6323026983113053995}
+    m_TransformParent: {fileID: 5359602008471636725}
     m_Modifications:
     - target: {fileID: 842302040107680459, guid: 4596ca703cfdb144b9ee7e7766da2886, type: 3}
       propertyPath: m_Name
@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1287312032181821428, guid: 4596ca703cfdb144b9ee7e7766da2886, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 870
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1287312032181821428, guid: 4596ca703cfdb144b9ee7e7766da2886, type: 3}
       propertyPath: m_LocalPosition.x
@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1287312032181821428, guid: 4596ca703cfdb144b9ee7e7766da2886, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -435
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1287312032181821428, guid: 4596ca703cfdb144b9ee7e7766da2886, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

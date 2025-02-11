@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 using DG.Tweening;
-using Extensions;
 
 public enum PopupAnimationType
 {

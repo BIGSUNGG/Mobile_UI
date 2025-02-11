@@ -4,7 +4,6 @@ using DG.Tweening;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using System;
-using static Extensions.DOTWeenExtension;
 using DG.Tweening.Core;
 
 public enum UI_AnimtaionType
