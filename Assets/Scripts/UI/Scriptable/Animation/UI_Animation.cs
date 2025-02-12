@@ -27,10 +27,10 @@ public struct UI_AnimationInfo
     public float Duration;
     public Ease Ease;
 
-    [ShowIf("@this.AnimationType == UI_AnimtaionType.ScaleRatio")]
+    [ShowIf("@this.AnimationType == UI_AnimtaionType.ScaleRatio || this.AnimationType == UI_AnimtaionType.RotateToTarget")]
     public float Value;
 
-    [ShowIf("@this.AnimationType == UI_AnimtaionType.ScaleToTarget || this.AnimationType == UI_AnimtaionType.MoveToTarget || this.AnimationType == UI_AnimtaionType.RotateToTarget")]
+    [ShowIf("@this.AnimationType == UI_AnimtaionType.ScaleToTarget || this.AnimationType == UI_AnimtaionType.MoveToTarget")]
     public Vector2 Target;
 }
 
@@ -38,6 +38,8 @@ public static class UI_AnimationHandler
 {
     static void Add(Sequence baseSequence, Tweener addAnimation, UI_AnimationInfo animationInfo)
     {
+        addAnimation.SetEase(animationInfo.Ease);
+
         switch(animationInfo.SequenceType)
         {
             case SequenceType.Append:
@@ -65,14 +67,24 @@ public static class UI_AnimationHandler
                 break;
             case UI_AnimtaionType.ScaleToTarget:
                 {
-                    Add(baseSequence, target.RectTransform.DOScale(animation.Target, 0.125f).SetEase(Ease.OutSine), animation);
+                    Add(baseSequence, target.RectTransform.DOScale(animation.Target, animation.Duration), animation);
                 }
                 break;
             case UI_AnimtaionType.ScaleRatio:
                 {
                     Vector3 targetScale = target.RectTransform.localScale * animation.Value;
 
-                    Add(baseSequence, target.RectTransform.DOScale(targetScale, 0.125f).SetEase(Ease.OutSine), animation);
+                    Add(baseSequence, target.RectTransform.DOScale(targetScale, animation.Duration), animation);
+                }
+                break;
+            case UI_AnimtaionType.MoveToTarget:
+                {
+                    Add(baseSequence, target.RectTransform.DOMoveUI(animation.Target, animation.Duration), animation);
+                }
+                break;
+            case UI_AnimtaionType.RotateToTarget:
+                {
+                    Add(baseSequence, target.RectTransform.DORotateUI(animation.Value, animation.Duration), animation);
                 }
                 break;
             default:

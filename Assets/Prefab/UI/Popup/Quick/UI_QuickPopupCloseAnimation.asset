@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ea097833b6b79049ab4bc389791d8c2, type: 3}
-  m_Name: UI_HpTestPopupCloseAnimation
+  m_Name: UI_QuickPopupCloseAnimation
   m_EditorClassIdentifier: 
   OnStartAnimationEvent:
     m_PersistentCalls:
@@ -19,19 +19,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Animations:
-  - AnimationType: 2
+  - AnimationType: 3
     SequenceType: 0
     InsertTime: 0
     Delay: 0
-    Duration: 0.125
-    Ease: 3
+    Duration: 0.25
+    Ease: 28
     Value: 1.1
-    Target: {x: 0, y: 0}
-  - AnimationType: 1
-    SequenceType: 0
-    InsertTime: 1
-    Delay: 0
-    Duration: 0.125
-    Ease: 2
-    Value: 0
-    Target: {x: 0, y: 0}
+    Target: {x: -360, y: 0}

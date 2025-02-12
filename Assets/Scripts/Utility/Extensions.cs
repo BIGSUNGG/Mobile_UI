@@ -1,4 +1,6 @@
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using System;
 using UnityEngine;
 
@@ -29,6 +31,16 @@ public static class VectorExtension
 
 public static class DOTWeenExtension
 {
+    public static TweenerCore<Vector3,Vector3,VectorOptions> DOMoveUI(this RectTransform rect, Vector3 target, float time)
+    {
+        return rect.DOLocalMove(target, time);        
+    }
 
+    public static TweenerCore<Quaternion, Vector3, QuaternionOptions> DORotateUI(this RectTransform rect, float target, float time)
+    {
+        Vector3 targetAngle = rect.localEulerAngles;
+        targetAngle.z = target;
 
+        return rect.DOLocalRotate(targetAngle, time);
+    }
 }
