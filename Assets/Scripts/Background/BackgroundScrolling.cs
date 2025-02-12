@@ -62,19 +62,17 @@ public class BackgroundScrolling : Background
     {
         base.Update();
 
-        _remainingRepeatTime -= Time.deltaTime;
-        if (_remainingRepeatTime <= 0)
-        {
-            RepeatBackground();
-            OnRepeatBackground(_infos.First());
-        }
-
+        // 배경 이동
         Vector3 moveDelta = _direction * _speed * Time.deltaTime;
-
         foreach (var background in _infos)
         {
             background.Transform.position += moveDelta;
         }
+
+        // 가장 앞에 있는 배경이 가장 뒤로 갈때까지 남은 시간 구하기
+        _remainingRepeatTime -= Time.deltaTime;
+        if (_remainingRepeatTime <= 0)
+            RepeatBackground();
     }   
 
     void RepeatBackground()
@@ -82,14 +80,16 @@ public class BackgroundScrolling : Background
         // 가장 앞에 있는 배경을 가장 뒤로 넘기기
         var firstInfo = _infos.First();
 
-        firstInfo.Transform.position = firstInfo.RepeatPos;
-      
+        firstInfo.Transform.position = firstInfo.RepeatPos - (_direction * _speed * _remainingRepeatTime).ToVector3();
+
         // 리스트의 가장 앞에 있는 정보를 가장 뒤로 넘기기
         _infos.RemoveAt(0);
         _infos.Add(firstInfo);
 
         // 가장 앞에 있는 배경의 가장 뒤로가는 시간 설정
         _remainingRepeatTime += _infos.First().RepeatTime;
+
+        OnRepeatBackground(_infos.First());
     }
 
     void OnRepeatBackground(ScrollingInfo info)
