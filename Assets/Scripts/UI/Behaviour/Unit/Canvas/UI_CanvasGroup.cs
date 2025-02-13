@@ -39,6 +39,18 @@ public class UI_CanvasGroup : UI_Unit
     {
         base.Start();
 
+        ProcessSafeArea();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        ProcessSafeArea();
+    }
+
+    void ProcessSafeArea()
+    {
         _minAnchor = Screen.safeArea.min;
         _maxAnchor = Screen.safeArea.max;
 
@@ -53,20 +65,15 @@ public class UI_CanvasGroup : UI_Unit
             RectTransform.anchorMin = _minAnchor;
             RectTransform.anchorMax = _maxAnchor;
         }
-        else if(_safeAreaProcessType == SafeAreaProcessType.FillBottom)
+        else if (_safeAreaProcessType == SafeAreaProcessType.FillBottom)
         {
             RectTransform.anchorMin = Vector2.zero;
             RectTransform.anchorMax = new Vector2(RectTransform.anchorMax.x, _minAnchor.y);
         }
-        else if(_safeAreaProcessType == SafeAreaProcessType.FillTop)
+        else if (_safeAreaProcessType == SafeAreaProcessType.FillTop)
         {
             RectTransform.anchorMin = new Vector2(RectTransform.anchorMin.x, _maxAnchor.y);
             RectTransform.anchorMax = Vector2.one;
         }
-    }
-
-    public override void Update()
-    {
-        base.Update();
     }
 }
