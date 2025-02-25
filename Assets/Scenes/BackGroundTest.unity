@@ -543,13 +543,13 @@ MonoBehaviour:
   _direction: {x: 1, y: 0}
   _infos:
   - Transform: {fileID: 919340915}
-    RepeatTime: 3
+    Interval: 10
   - Transform: {fileID: 54840045}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 1719766945}
-    RepeatTime: 1
+    Interval: 10
   - Transform: {fileID: 1554068800}
-    RepeatTime: 2
+    Interval: 10
 --- !u!4 &90852396
 Transform:
   m_ObjectHideFlags: 0
@@ -889,13 +889,13 @@ MonoBehaviour:
   _direction: {x: -1, y: 1}
   _infos:
   - Transform: {fileID: 922670295}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 330819054}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 1268996274}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 221403991}
-    RepeatTime: 2
+    Interval: 10
 --- !u!1 &318243179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,11 +1653,11 @@ MonoBehaviour:
   _direction: {x: -1, y: 0}
   _infos:
   - Transform: {fileID: 68975527}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 1805212860}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 393992624}
-    RepeatTime: 2
+    Interval: 10
 --- !u!4 &679817103
 Transform:
   m_ObjectHideFlags: 0
@@ -2927,17 +2927,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7235df1a56ba66840888dd7a57955ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 30
   _direction: {x: -1, y: -1}
   _infos:
   - Transform: {fileID: 455664641}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 241210977}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 687341983}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 1717579767}
-    RepeatTime: 2
+    Interval: 10
 --- !u!4 &1362057214
 Transform:
   m_ObjectHideFlags: 0
@@ -3403,13 +3403,13 @@ MonoBehaviour:
   _direction: {x: 0, y: 1}
   _infos:
   - Transform: {fileID: 609264724}
-    RepeatTime: 1.5
+    Interval: 10
   - Transform: {fileID: 1662439670}
-    RepeatTime: 1
+    Interval: 10
   - Transform: {fileID: 806110376}
-    RepeatTime: 0.5
+    Interval: 10
   - Transform: {fileID: 1957659682}
-    RepeatTime: 1
+    Interval: 10
 --- !u!4 &1600522045
 Transform:
   m_ObjectHideFlags: 0

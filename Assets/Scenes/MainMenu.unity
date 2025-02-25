@@ -309,11 +309,11 @@ MonoBehaviour:
   _direction: {x: -1, y: 0}
   _infos:
   - Transform: {fileID: 330819054}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 1268996274}
-    RepeatTime: 2
+    Interval: 10
   - Transform: {fileID: 221403991}
-    RepeatTime: 2
+    Interval: 10
 --- !u!1 &330819051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,11 +2098,11 @@ MonoBehaviour:
   _direction: {x: -1, y: 0}
   _infos:
   - Transform: {fileID: 131101429}
-    RepeatTime: 1
+    Interval: 10
   - Transform: {fileID: 363193276}
-    RepeatTime: 1
+    Interval: 10
   - Transform: {fileID: 772032737}
-    RepeatTime: 1
+    Interval: 10
 --- !u!1 &1946119916
 GameObject:
   m_ObjectHideFlags: 0

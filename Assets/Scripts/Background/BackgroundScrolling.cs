@@ -10,8 +10,10 @@ public class ScrollingInfo
 {
     [Tooltip("배경 오브젝트의 트랜스폼")]
     public Transform Transform;
-    [Tooltip("가장 앞에있는 배경이 되었을 때 얼마 뒤에 가장 뒤로 넘어갈지")]
-    public float RepeatTime;
+    [Tooltip("배경의 간격")]
+    public float Interval;
+
+    public float RepeatTime { get; set; }
 
     public Vector3 RepeatPos { get; set; }
 }
@@ -34,19 +36,18 @@ public class BackgroundScrolling : Background
     public override void Awake()
     {
         base.Awake();
-
-    }
-
-    public override void Start()
-    {
-        base.Start();
+        
+        foreach(var info in _infos)
+        {
+            info.RepeatTime = info.Interval / _speed;
+        }
 
         _direction.Normalize();
         _remainingRepeatTime = _infos.First().RepeatTime;
 
         // 배경이 반복될 때까지 얼마나 이동하는지
         Vector3 howMoveUntilRepeat = Vector3.zero;
-        foreach(var info in _infos)
+        foreach (var info in _infos)
         {
             howMoveUntilRepeat += (_direction * _speed * info.RepeatTime).ToVector3();
         }
@@ -56,6 +57,11 @@ public class BackgroundScrolling : Background
             howMoveUntilRepeat -= (_direction * _speed * info.RepeatTime).ToVector3();
             info.RepeatPos = info.Transform.position - howMoveUntilRepeat;
         }
+    }
+
+    public override void Start()
+    {
+        base.Start();
     }
 
     public override void Update()
